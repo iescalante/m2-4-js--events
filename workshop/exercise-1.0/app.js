@@ -11,3 +11,11 @@
 // OPTIONAL
 // Feel free to add some CSS to this once you're done
 // --------------------------------------------------
+let body = document.querySelector("body");
+body.style.height = "100vw";
+body.style.backgroundColor = "lightblue";
+body.style.border = "1px dashed black";
+
+body.addEventListener("click", function () {
+  console.log("body was clicked");
+});
