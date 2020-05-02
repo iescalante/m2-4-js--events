@@ -17,6 +17,29 @@
 // HINTS:
 // - You can use Math.random to generate a random number betwen 0 and 1, and
 //   use math operators to scale it between 3 and 5 seconds
+let body = document.querySelector("body");
+body.style.height = "100vw";
+body.style.background = "lightblue";
+let result = document.querySelector("#result");
+
+let win = false;
+let time = Math.round(Math.random() * 3 + 2);
+let timeLeft = document.querySelector("#time");
+timeLeft.innerText = time;
+function clickResult() {
+  win = true;
+  result.innerText = "You win, congratulations!";
+
+  body.removeEventListener("click", clickResult);
+}
+
+setTimeout(function () {
+  if (!win) {
+    result.innerText = "You lost, better luck next time!";
+  }
+}, time * 1000);
+
+body.addEventListener("click", clickResult);
 
 // Stretch goal
 // Make the countdown live (show a countdown that updates several times a
