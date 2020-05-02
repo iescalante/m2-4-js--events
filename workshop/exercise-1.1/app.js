@@ -7,9 +7,31 @@
 
 // Hints:
 // - Target the <body>
-// - setTimout is your friend.
+// - setTimeout is your friend.
 // - You'll need a variable to keep track of whether the user has won or lost
 
 // OPTIONAL
 // Feel free to add some CSS to this once you're done
 // --------------------------------------------------
+let body = document.querySelector("body");
+body.style.height = "100vw";
+let result = document.querySelector("#result");
+
+let win = false;
+
+function clickResult() {
+  win = true;
+  console.log("WINNER! PEW PEW PEW");
+
+  body.removeEventListener("click", clickResult);
+}
+
+setTimeout(function () {
+  if (!win) {
+    console.log("LOSER! !>.<!");
+
+    body.removeEventListener("click", clickResult);
+  }
+}, 3000);
+
+body.addEventListener("click", clickResult);
